@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'golang:1.22' } // 使用Go 1.22的官方Docker镜像
+    agent { docker 'golang:1.24' } // 使用Go 1.22的官方Docker镜像
     stages {
         stage('Build') {
             steps {
