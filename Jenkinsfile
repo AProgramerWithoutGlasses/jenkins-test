@@ -3,12 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    docker.image('golang:1.24').inside('-w /app') { // 指定Linux路径 /app 作为工作目录
-                        sh 'go version'
-                        sh 'go build -o myapp'
-                    }
-                }
+                bat 'docker run --rm -v "%CD%:/app" -w /app golang:1.24 go version'
+                bat 'docker run --rm -v "%CD%:/app" -w /app golang:1.24 go build -o myapp'
             }
         }
     }
